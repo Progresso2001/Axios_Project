@@ -12,3 +12,21 @@ axios.post('https://jsonplaceholder.typicode.com/posts', {
 .catch(err=> {
     console.error('Erro ao criar dado: ', err);
 })
+
+// Usando async / await
+
+async function postarDadosNovo(){
+    try{
+        const res = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+        userId: 1,
+        title: 'Estudando biblioteca axios',
+        body:'joaquimmenianga99@gmail.com'
+    })
+    console.log("Dados inseridos com sucesso: ", res.data.id)
+    console.log(res.data)
+
+    }catch(err){
+        console.log("Error: ", err)
+    }
+}
+postarDadosNovo()
