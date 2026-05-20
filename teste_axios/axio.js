@@ -11,13 +11,13 @@ axios.get('https://jsonplaceholder.typicode.com/posts/1')
 
 // usando async / await
 
-async function buscarDados() {
-    try{
-        const res =  await axios.get('https://jsonplaceholder.typicode.com/posts/1')
-    console.log(res.data)
-    }catch(err){
-        console.error("Erro: ", err)
-    }
+// async function buscarDados() {
+//     try{
+//         const res =  await axios.get('https://jsonplaceholder.typicode.com/posts/1')
+//     console.log(res.data)
+//     }catch(err){
+//         console.error("Erro: ", err)
+//     }
     
-}
-buscarDados()
+// }
+// buscarDados()
