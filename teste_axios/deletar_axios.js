@@ -5,6 +5,7 @@ axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
 .then(res=>console.log("Deletado com sucesso\nstatus:", res.status))
 .catch(e=>console.error("Erro ao deletar: ", e.message))
 
+
 // usando async /await
 
 async function deletarPost(){
