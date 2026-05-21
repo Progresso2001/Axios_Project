@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumindo API</title>
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            margin: auto;
+            width: 50%;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="nomeUsuario" placeholder="Usuario do github:">
+    <button type="submit" onclick="trazerRepositorios()">Pesquisar</button>
+    <button onclick="location.reload()">Limpar</button>
+    <ul id="repos"></ul>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
