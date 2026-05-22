@@ -35,6 +35,10 @@ const infPessoal = {
     email: "joaquime@gmail.com",
     habilidades: {
         programcao: ["Python", "JavaScript", "MySQL", "Node.js"], 
+        livros : [
+            {titulo: "JavaScript completo", autor: "Editora OReil", ano: 2022},
+            {titulo: "Python Para Data Science", autor: "Editora OReil", ano: 2022}
+        ]
     }
 }
 // console.log(typeof infPessoal)
