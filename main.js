@@ -59,6 +59,6 @@ async function transformarEmJson(){
     }else{
         console.log("Erro ao transformar em json o objecto")
 
-    // }
+    }
 }
 transformarEmJson()
