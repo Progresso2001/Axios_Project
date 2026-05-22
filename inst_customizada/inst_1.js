@@ -2,13 +2,13 @@
 const axios = require("axios");
 
 const axiosInstance = (
-    baseurl ='https://jsonplaceholder.typicode.com',
+    baseURL,
     token,
     contentType= "application/json, charset 'utf-8'" 
 ) =>{
     // criando instancia  customizada
     const minhaInstancia = axios.create({
-        baseURL:baseurl,
+        baseURL,
         timeout: 60000,
         headers: {
             'Content-Type': contentType,
@@ -30,18 +30,37 @@ const axiosInstance = (
     );
     return minhaInstancia
 }
-// Instancia Sem token
-const api = axiosInstance()
 
-api.get('/posts/1')
-    .then(res=>console.log(res.data))
-    .catch(e => console.error(e.response?.data || e.message))
+// // Instancia Sem token
+// const api = axiosInstance()
 
-// Definindo o token
+// api.get('/posts/1')
+//     .then(res=>console.log(res.data))
+//     .catch(e => console.error(e.response?.data || e.message))
 
-const tokeApi = axiosInstance(undefined, 'MEU_TOKEN_AQUI') //Sem token
+// // Definindo o token
 
-tokeApi.get('/posts/1')
-    .then(res=>console.log(res.data))
-    .catch(e => console.error(e.response?.data || e.message))
+// const tokeApi = axiosInstance(undefined, 'MEU_TOKEN_AQUI') //Sem token
+
+// tokeApi.get('/posts/1')
+//     .then(res=>console.log(res.data))
+//     .catch(e => console.error(e.response?.data || e.message))
+
+// --------------------OUTRA FORMA DE CHAMARA INSTANCIA--------------------------
+
+const baseURL = 'https://jsonplaceholder.typicode.com'
+const token = "MEU_TOKEN"
+
+const meuInstance = axiosInstance(baseURL, token)
+meuInstance.get('/posts/1')
+    .then(res => console.log(res.data))
+    .catch(e =>{
+        if(e.message.includes('Invalid URL')){
+            console.error("Verificar a instancia do metodo.")
+        }else{
+            console.error("Outro tipo de erro: ", e.message)
+            
+        }
+    })
+
 
