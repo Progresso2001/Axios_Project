@@ -13,5 +13,8 @@ axios
         }
 
     })
+setTimeout(()=>{
+    cancelarRequest.abort("Cancelada pelo timeout");
+}, 3000)
 
 cancelarRequest.abort()
