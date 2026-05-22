@@ -52,12 +52,12 @@ async function transformarEmJson(){
     
     // imprimir com tratamento de erro
 
-    // const myFyle =  JSON.stringify(infPessoal)
-    // const res = await myFyle
-    // if(typeof(res)=== 'string'){
-    //     console.log("Dados transformado em json: ", res)
-    // }else{
-    //     console.log("Erro ao transformar em json o objecto")
+    const myFyle =  JSON.stringify(infPessoal)
+    const res = await myFyle
+    if(typeof(res)=== 'string'){
+        console.log("Dados transformado em json: ", res)
+    }else{
+        console.log("Erro ao transformar em json o objecto")
 
     // }
 }
