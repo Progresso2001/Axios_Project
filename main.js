@@ -28,3 +28,31 @@ async function testarConhecimentoApi(){
     }
 }
 testarConhecimentoApi()
+
+const infPessoal = {
+    id: 1,
+    nome: "Joaquim",
+    email: "joaquime@gmail.com",
+    habilidades: {
+        programcao: ["Python", "JavaScript", "MySQL", "Node.js"], 
+    }
+}
+// console.log(typeof infPessoal)
+async function transformarEmJson(){
+    // impressao de dados sem tratamento de erros
+
+    const res = await JSON.stringify(infPessoal)
+    console.log("Dados em Json: ", res)
+    
+    // imprimir com tratamento de erro
+
+    const myFyle =  JSON.stringify(infPessoal)
+    const res = await myFyle
+    if(typeof(res)=== 'string'){
+        console.log("Dados transformado em json: ", res)
+    }else{
+        console.log("Erro ao transformar em json o objecto")
+
+    }
+}
+transformarEmJson()
