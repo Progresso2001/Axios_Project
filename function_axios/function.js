@@ -74,3 +74,23 @@ axios.get('https://jsonplaceholder.typicode.com/users', {
 })
 
 setTimeout(()=>cancel('OK'), 1000)
+
+
+// Se a função “executora” chama outra função
+// Se você tem uma função principal que executa outra, as duas podem ser organizadas assim:
+
+async function executar() {
+  try {
+    const dados = await buscarDados();
+    console.log(dados);
+  } catch (erro) {
+    console.error(erro);
+  }
+}
+
+async function buscarDados() {
+  const resposta = await axios.get("https://api.exemplo.com/dados");
+  return resposta.data;
+}
+
+executar();
