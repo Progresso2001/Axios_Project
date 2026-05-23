@@ -48,3 +48,29 @@ async function carregarDados(){
 carregarDados()
 
 setTimeout(()=>controller.abort(), 2000)
+
+// Multiplas requisições canceladas
+
+const CancelToken = axios.CancelToken;
+let cancel;
+
+const token = new CancelToken(function executor(c){
+    cancel = c;
+})
+
+axios.get('https://jsonplaceholder.typicode.com/posts', {
+    cancelToken: token
+})
+axios.get('https://jsonplaceholder.typicode.com/users', {
+    cancelToken: token
+})
+.then(res=>console.log(res.data))
+.catch(e =>{
+    if(e.name === 'CanceledError'){
+        console.log("Status do cancelamento: ", e.message)
+    }else{
+        console.error("Usuario cancelou")
+    }
+})
+
+setTimeout(()=>cancel('OK'), 1000)
