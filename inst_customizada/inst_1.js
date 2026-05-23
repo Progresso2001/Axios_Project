@@ -12,7 +12,7 @@ const axiosInstance = (
         timeout: 60000,
         headers: {
             'Content-Type': contentType,
-            'Acess-Control-Allow-Origin':'*'
+            
         }
     });
     //Adiconar interceptores para token no request
