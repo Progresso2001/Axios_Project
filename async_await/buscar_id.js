@@ -2,26 +2,26 @@ const axios = require('axios')
 
 // Criar instancia e configurar
 
-// const api = axios.create({
-//     baseURL: 'https://jsonplaceholder.typicode.com',
-//     timeout: 3000,
-//     headers:{'Content-Type': 'application/json'}
-// })
+const api = axios.create({
+    baseURL: 'https://jsonplaceholder.typicode.com',
+    timeout: 3000,
+    headers:{'Content-Type': 'application/json'}
+})
 
-// async function buscarDados(id){
-//    try{
-//      const res = await api(`/users/${id}`)
-//     console.log(res.data)
-//     return res.data
-//    }
-//    catch(e){
-//     if(e.request){
-//     console.error("Erro na API: ", e.request.message)
+async function buscarDados(id){
+   try{
+     const res = await api(`/users/${id}`)
+    console.log(res.data)
+    return res.data
+   }
+   catch(e){
+    if(e.request){
+    console.error("Erro na API: ", e.request.message)
 
-//     }
-//    }
-// }
-// buscarDados(5)
+    }
+   }
+}
+buscarDados(5)
 
 
 // POST COM PARAMETRO NA FUNCAO
