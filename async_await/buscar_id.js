@@ -21,33 +21,33 @@ async function buscarDados(id){
     }
    }
 }
-buscarDados(5)
+buscarDados(1)
 
 
 // POST COM PARAMETRO NA FUNCAO
 
-const api = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com',
-    timeout: 2000,
-    headers:{'Content-Type': 'application/json'}
-})
+// const api = axios.create({
+//     baseURL: 'https://jsonplaceholder.typicode.com',
+//     timeout: 2000,
+//     headers:{'Content-Type': 'application/json'}
+// })
 
-async function buscarDados(dados){
-   try{
-     const res = await api.post("/posts", dados)
-    console.log("Dados criados com sucesso: ", res.data)
-    return res.data
-   }
-   catch(e){
-    if(e.request){
-    console.error("Erro na API: ", e.request.message)
+// async function buscarDados(dados){
+//    try{
+//      const res = await api.post("/posts", dados)
+//     console.log("Dados criados com sucesso: ", res.data)
+//     return res.data
+//    }
+//    catch(e){
+//     if(e.request){
+//     console.error("Erro na API: ", e.request.message)
 
-    }
-   }
-}
-buscarDados({
-    name: 'joaquim',
-    title: 'eliseu',
-    body: 'joaquimeliseu@annie.ca'
-}
-)
+//     }
+//    }
+// }
+// buscarDados({
+//     name: 'joaquim',
+//     title: 'eliseu',
+//     body: 'joaquimeliseu@annie.ca'
+// }
+// )
