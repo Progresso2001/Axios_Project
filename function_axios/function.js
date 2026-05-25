@@ -94,3 +94,61 @@ async function buscarDados() {
 }
 
 executar();
+
+const baseURL = 'https://jsonplaceholder.typicode.com'
+
+const customNovo = new axios.create({
+    baseURL,
+    timeout: 3000,
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+
+customNovo.get('/posts/1')
+    .then(res=> console.log(res.data))
+   
+    .catch(e=>{
+        if(e.name === 'Request failed'){
+            console.log("Requisição feita com sucesso: ", e.status)
+        }else{
+            console.log("falha ao fazer requisição: ", e.message)
+            
+        }
+    })
+
+
+const baseurl = 'https://jsonplaceholder.typicode.com'
+const contentType = 'application/json'
+const tempoRes = 4000
+
+const custom = (
+    baseurl, 
+    contentType,
+    tempoRes
+) => {
+    const dadosApi = axios.create({
+    baseURL: baseurl,
+    timeout: tempoRes,
+    headers: {
+        'Content-Type': contentType
+    }
+})
+dadosApi.interceptors.response.use(
+    (res)=> res,
+    (e) => Promise.reject(error)
+    )
+    return dadosApi
+}
+
+const imprimirDados = custom(baseurl, contentType, tempoRes)
+imprimirDados.get('/users')
+    .then(res=>console.log("Dados: ", res.data))
+    .catch(e=>{
+        if(e.message.includes('error is not defined')){
+             console.log("Verificar o caminho da  url: ", e.status)
+        }else{
+             console.log("Configurar o erro encontrado na definição: ", e.message)
+        }
+    }
+)
